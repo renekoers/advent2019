@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13821a2-0f9d-43de-a7f5-03423e2ce76d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/IntCodePart1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/day2input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/IntCodePart2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/advent2019.iml" beforeDir="false" afterPath="$PROJECT_DIR$/advent2019.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FuelRequirementCalculatorPart1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FuelRequirementCalculatorPart2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/day1input.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.IntCodePart1">
+  <component name="RunManager" selected="Application.IntCodePart2">
     <configuration name="FuelRequirementCalculatorPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FuelRequirementCalculatorPart1" />
       <module name="advent2019" />
@@ -82,8 +74,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="IntCodePart2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="IntCodePart2" />
+      <module name="advent2019" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.IntCodePart2" />
         <item itemvalue="Application.IntCodePart1" />
         <item itemvalue="Application.FuelRequirementCalculatorPart2" />
         <item itemvalue="Application.FuelRequirementCalculatorPart1" />
