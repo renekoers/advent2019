@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13821a2-0f9d-43de-a7f5-03423e2ce76d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/IntCodePart2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CrossedWiresPart1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/day3input" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IntCodePart1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IntCodePart2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/day2input.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
