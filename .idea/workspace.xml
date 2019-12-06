@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c13821a2-0f9d-43de-a7f5-03423e2ce76d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CrossedWiresPart1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/day3input" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IntCodePart1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IntCodePart2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/day2input.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CrossedWiresPart1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CrossedWiresPart1.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +52,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.IntCodePart2">
+  <component name="RunManager" selected="Application.CrossedWiresPart1">
+    <configuration name="CrossedWiresPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CrossedWiresPart1" />
+      <module name="advent2019" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FuelRequirementCalculatorPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="FuelRequirementCalculatorPart1" />
       <module name="advent2019" />
@@ -87,6 +90,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CrossedWiresPart1" />
         <item itemvalue="Application.IntCodePart2" />
         <item itemvalue="Application.IntCodePart1" />
         <item itemvalue="Application.FuelRequirementCalculatorPart2" />
