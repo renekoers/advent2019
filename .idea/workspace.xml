@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CrossedWiresPart1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CrossedWiresPart1.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,25 +31,19 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.CrossedWiresPart1">
     <configuration name="CrossedWiresPart1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -98,6 +91,18 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -126,5 +131,31 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1131" y="588" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1575705672758">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1131" y="588" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1575705672758" />
+    <state width="2517" height="113" key="GridCell.Tab.0.bottom" timestamp="1575705861081">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="113" key="GridCell.Tab.0.bottom/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1575705861081" />
+    <state width="2517" height="113" key="GridCell.Tab.0.center" timestamp="1575705861080">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="113" key="GridCell.Tab.0.center/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1575705861080" />
+    <state width="2517" height="113" key="GridCell.Tab.0.left" timestamp="1575705861080">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="113" key="GridCell.Tab.0.left/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1575705861080" />
+    <state width="2517" height="113" key="GridCell.Tab.0.right" timestamp="1575705861080">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="113" key="GridCell.Tab.0.right/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1575705861080" />
+    <state x="981" y="522" key="com.intellij.ide.util.TipDialog" timestamp="1575705612884">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="981" y="522" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/-2560.0.2560.1400@0.0.2560.1400" timestamp="1575705612884" />
   </component>
 </project>
