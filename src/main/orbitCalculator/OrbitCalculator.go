@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -26,6 +27,7 @@ func makeSpaceObjects() {
 
 	relationsMap := &spaceObjectRelations
 	makeEmptySpaceObjects(file, relationsMap)
+	// fmt.Print(relationsMap)
 	appendChildOrbitObjects(relationsMap)
 }
 
@@ -34,25 +36,22 @@ func makeEmptySpaceObjects(file io.Reader, relationsMap *map[string]string) *map
 	for scanner.Scan() {
 		lineRunes := []rune(scanner.Text())
 		spaceObjectName := string(lineRunes[:3])
-		spaceObjectChildName := string(lineRunes[5:])
+		spaceObjectChildName := string(lineRunes[4:])
 
-		(*relationsMap)[spaceObjectName] = spaceObjectChildName
+		(*relationsMap)[spaceObjectChildName] = spaceObjectName
 		spaceObjects[spaceObjectName] = newEmptySpaceObject(spaceObjectName)
+		spaceObjects[spaceObjectChildName] = newEmptySpaceObject(spaceObjectChildName)
 	}
 	return relationsMap
 }
 
-func appendChildOrbitObjects(relationsMap *map[string]string) *map[string]string {
-	for parentKey, childName := range *relationsMap {
-		for spaceObjectKey, spaceObject := range spaceObjects {
-			if parentKey == spaceObjectKey {
-				childOrbitObject := newChildSpaceObject(childName, spaceObject)
-				spaceObject.orbitChildren = append(spaceObject.orbitChildren, childOrbitObject)
-				spaceObjects[spaceObject.name] = spaceObject
-			}
-		}
+func appendChildOrbitObjects(relationsMap *map[string]string) {
+	for childName, parentName := range *relationsMap {
+		var orbitParent = spaceObjects[parentName]
+		var orbitChild = spaceObjects[childName]
+		orbitChild.orbitParent = orbitParent
+		orbitParent.orbitChildren = append(orbitParent.orbitChildren, orbitChild)
 	}
-	return relationsMap
 }
 
 func newEmptySpaceObject(spaceObjectName string) *spaceObject {
@@ -63,15 +62,9 @@ func newEmptySpaceObject(spaceObjectName string) *spaceObject {
 	}
 }
 
-func newChildSpaceObject(spaceObjectName string, parent *spaceObject) *spaceObject {
-	return &spaceObject{
-		name:          spaceObjectName,
-		orbitParent:   parent,
-		orbitChildren: make([]*spaceObject, 0),
-	}
-}
-
 func main() {
 	makeSpaceObjects()
-
+	for _, spaceObject := range spaceObjects {
+		fmt.Println(spaceObject.name, spaceObject.orbitParent)
+	}
 }
