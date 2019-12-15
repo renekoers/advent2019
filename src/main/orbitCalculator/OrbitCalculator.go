@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -17,6 +18,10 @@ type spaceObject struct {
 
 func main() {
 	makeSpaceObjects()
+	sourceSpaceObject := findSourceSpaceObject()
+	totalOfOrbits := sourceSpaceObject.getTotalOfOrbits(sourceSpaceObject)
+	fmt.Println(totalOfOrbits)
+
 }
 
 func makeSpaceObjects() {
@@ -62,4 +67,42 @@ func newSpaceObject(spaceObjectParentName string) *spaceObject {
 		orbitParent:   nil,
 		orbitChildren: make([]*spaceObject, 0),
 	}
+}
+
+func findSourceSpaceObject() (sourceSpaceObject *spaceObject) {
+	for _, spaceObject := range spaceObjects {
+		if spaceObject.orbitParent == nil {
+			return spaceObject
+		}
+	}
+	fmt.Println("Couldn't find a source!")
+	return nil
+}
+
+func (spaceObject *spaceObject) getTotalOfOrbits(sourceSpaceObject *spaceObject) int {
+	total := spaceObject.getTotalOrbitsToSource(spaceObject)
+	for _, spaceObjectOrbittingChild := range spaceObject.orbitChildren {
+		if len(spaceObjectOrbittingChild.orbitChildren) != 0 {
+			total = total + spaceObjectOrbittingChild.getTotalOfOrbits(sourceSpaceObject)
+		}
+	}
+	return total
+}
+
+func (spaceObject *spaceObject) getTotalOrbitsToSource(sourceSpaceObject *spaceObject) int {
+	stepsToSource := 0
+	if spaceObject.orbitParent != nil {
+		stepsToSource = spaceObject.orbitParent.getMyAmountOfOrbitsToSource(sourceSpaceObject, stepsToSource)
+	}
+	return stepsToSource
+}
+
+func (spaceObject *spaceObject) getMyAmountOfOrbitsToSource(sourceSpaceObject *spaceObject, stepsToSource int) int {
+	stepsToSource = stepsToSource + 1
+	if spaceObject != sourceSpaceObject && spaceObject.orbitParent != nil {
+		spaceObject.orbitParent.getMyAmountOfOrbitsToSource(sourceSpaceObject, stepsToSource)
+	} else {
+		return stepsToSource
+	}
+	return stepsToSource
 }
