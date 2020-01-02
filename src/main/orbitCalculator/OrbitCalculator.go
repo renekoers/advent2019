@@ -19,7 +19,6 @@ type spaceObject struct {
 func main() {
 	makeSpaceObjects()
 	sourceSpaceObject := findSourceSpaceObject()
-	fmt.Println(sourceSpaceObject)
 	totalOfOrbits := 0
 	sourceSpaceObject.addYourOrbitsToSourceToTotalAndAskChildren(sourceSpaceObject, &totalOfOrbits)
 	fmt.Println(totalOfOrbits)
@@ -39,7 +38,6 @@ func makeSpaceObjects() {
 
 	makeEmptySpaceObjects(file, relationsMap)
 	createSpaceObjectRelationships(relationsMap)
-	fmt.Print(relationsMap)
 }
 
 func makeEmptySpaceObjects(file io.Reader, relationsMap *map[string]string) *map[string]string {
@@ -85,7 +83,6 @@ func findSourceSpaceObject() (sourceSpaceObject *spaceObject) {
 
 func (thisSpaceObject *spaceObject) addYourOrbitsToSourceToTotalAndAskChildren(sourceSpaceObject *spaceObject, totalOfOrbits *int) {
 	*totalOfOrbits = *totalOfOrbits + thisSpaceObject.getTotalOrbitsToSource()
-	fmt.Println(thisSpaceObject.name, "Steps to source:", *totalOfOrbits)
 	if len(thisSpaceObject.orbitChildren) != 0 {
 		for _, spaceObjectOrbittingChild := range thisSpaceObject.orbitChildren {
 			spaceObjectOrbittingChild.addYourOrbitsToSourceToTotalAndAskChildren(sourceSpaceObject, totalOfOrbits)
