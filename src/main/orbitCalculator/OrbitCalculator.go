@@ -23,6 +23,10 @@ func main() {
 	sourceSpaceObject.addYourOrbitsToSourceToTotalAndAskChildren(sourceSpaceObject, &totalOfOrbits)
 	fmt.Println(totalOfOrbits)
 
+	stepsFromYouParentToSantaParent := 0
+	calculateStepsFromYouParentToSantaParent(&stepsFromYouParentToSantaParent)
+	fmt.Println(stepsFromYouParentToSantaParent)
+
 }
 
 func makeSpaceObjects() {
@@ -95,4 +99,62 @@ func (thisSpaceObject *spaceObject) getTotalOrbitsToSource() int {
 		return thisSpaceObject.orbitParent.getTotalOrbitsToSource() + 1
 	}
 	return 0
+}
+
+func calculateStepsFromYouParentToSantaParent(totalSteps *int) {
+	santa := spaceObjects["SAN"]
+	you := spaceObjects["YOU"]
+
+	santaToSource := makeSpaceObjectArrayFromTargetToSource(santa)
+	youToSource := makeSpaceObjectArrayFromTargetToSource(you)
+
+	fmt.Println(santaToSource)
+	fmt.Println(youToSource)
+
+	firstSharedOrbit := getFirstSameOrbit(santaToSource, youToSource)
+	fmt.Println(firstSharedOrbit)
+
+	getTotalOfOrbitTransfers(totalSteps, santaToSource, youToSource, firstSharedOrbit)
+
+}
+
+func makeSpaceObjectArrayFromTargetToSource(targetObject *spaceObject) []*spaceObject {
+	array := make([]*spaceObject, 0)
+	currentSpaceObject := targetObject.orbitParent
+	for {
+		array = append(array, currentSpaceObject)
+		if currentSpaceObject.orbitParent != nil {
+			currentSpaceObject = currentSpaceObject.orbitParent
+		} else {
+			break
+		}
+	}
+	return array
+}
+
+func getFirstSameOrbit(santaToSource []*spaceObject, youToSource []*spaceObject) *spaceObject {
+	for _, santaToSourceObject := range santaToSource {
+		for _, youToSourceObject := range youToSource {
+			if santaToSourceObject == youToSourceObject {
+				return santaToSourceObject
+			}
+		}
+	}
+	return nil
+}
+
+func getTotalOfOrbitTransfers(totalSteps *int, santaToSource []*spaceObject, youToSource []*spaceObject, firstSharedOrbit *spaceObject) {
+	for i, spaceObject := range santaToSource {
+		if spaceObject == firstSharedOrbit {
+			*totalSteps = *totalSteps + i
+			break
+		}
+	}
+
+	for i, spaceObject := range youToSource {
+		if spaceObject == firstSharedOrbit {
+			*totalSteps = *totalSteps + i
+			break
+		}
+	}
 }
