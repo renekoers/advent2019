@@ -19,7 +19,9 @@ type spaceObject struct {
 func main() {
 	makeSpaceObjects()
 	sourceSpaceObject := findSourceSpaceObject()
-	totalOfOrbits := sourceSpaceObject.getTotalOfOrbits(sourceSpaceObject)
+	fmt.Println(sourceSpaceObject)
+	totalOfOrbits := 0
+	sourceSpaceObject.addYourOrbitsToSourceToTotalAndAskChildren(sourceSpaceObject, &totalOfOrbits)
 	fmt.Println(totalOfOrbits)
 
 }
@@ -34,8 +36,10 @@ func makeSpaceObjects() {
 	defer file.Close()
 
 	relationsMap := &spaceObjectRelations
+
 	makeEmptySpaceObjects(file, relationsMap)
 	createSpaceObjectRelationships(relationsMap)
+	fmt.Print(relationsMap)
 }
 
 func makeEmptySpaceObjects(file io.Reader, relationsMap *map[string]string) *map[string]string {
@@ -79,30 +83,19 @@ func findSourceSpaceObject() (sourceSpaceObject *spaceObject) {
 	return nil
 }
 
-func (spaceObject *spaceObject) getTotalOfOrbits(sourceSpaceObject *spaceObject) int {
-	total := spaceObject.getTotalOrbitsToSource(spaceObject)
-	for _, spaceObjectOrbittingChild := range spaceObject.orbitChildren {
-		if len(spaceObjectOrbittingChild.orbitChildren) != 0 {
-			total = total + spaceObjectOrbittingChild.getTotalOfOrbits(sourceSpaceObject)
+func (thisSpaceObject *spaceObject) addYourOrbitsToSourceToTotalAndAskChildren(sourceSpaceObject *spaceObject, totalOfOrbits *int) {
+	*totalOfOrbits = *totalOfOrbits + thisSpaceObject.getTotalOrbitsToSource()
+	fmt.Println(thisSpaceObject.name, "Steps to source:", *totalOfOrbits)
+	if len(thisSpaceObject.orbitChildren) != 0 {
+		for _, spaceObjectOrbittingChild := range thisSpaceObject.orbitChildren {
+			spaceObjectOrbittingChild.addYourOrbitsToSourceToTotalAndAskChildren(sourceSpaceObject, totalOfOrbits)
 		}
 	}
-	return total
 }
 
-func (spaceObject *spaceObject) getTotalOrbitsToSource(sourceSpaceObject *spaceObject) int {
-	stepsToSource := 0
-	if spaceObject.orbitParent != nil {
-		stepsToSource = spaceObject.orbitParent.getMyAmountOfOrbitsToSource(sourceSpaceObject, stepsToSource)
+func (thisSpaceObject *spaceObject) getTotalOrbitsToSource() int {
+	if thisSpaceObject.orbitParent != nil {
+		return thisSpaceObject.orbitParent.getTotalOrbitsToSource() + 1
 	}
-	return stepsToSource
-}
-
-func (spaceObject *spaceObject) getMyAmountOfOrbitsToSource(sourceSpaceObject *spaceObject, stepsToSource int) int {
-	stepsToSource = stepsToSource + 1
-	if spaceObject != sourceSpaceObject && spaceObject.orbitParent != nil {
-		spaceObject.orbitParent.getMyAmountOfOrbitsToSource(sourceSpaceObject, stepsToSource)
-	} else {
-		return stepsToSource
-	}
-	return stepsToSource
+	return 0
 }
