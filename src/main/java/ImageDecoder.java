@@ -4,25 +4,29 @@ import java.util.*;
 public class ImageDecoder {
     private ArrayList<Integer> input = new ArrayList<>();
     private ArrayList<Layer> layerList = new ArrayList<>();
+    private int maxWidth = 25;
+    private int maxHeight = 6;
 
     public static void main(String[] args) {
         ImageDecoder id = new ImageDecoder();
         id.getIntInput();
         id.makeLayers();
-        Layer lowestZerosLayer = id.findFewestZerosLayer();
-        id.outputAnswer(lowestZerosLayer);
+//        Layer lowestZerosLayer = id.findFewestZerosLayer();
+//        id.outputAnswer(lowestZerosLayer);
+        Layer imageLayer = id.decodeImage();
+        id.printImage(imageLayer);
     }
 
     private void makeLayers(){
-        int maxWidth = 25;
-        int maxHeight = 6;
-        Layer currentLayer = new Layer();
+        Layer currentLayer = null;
         for(int i = 0; i < input.size(); i++){
-            if( i % (maxWidth * maxHeight) == 0 && i > 0){
-                layerList.add(currentLayer);
+            if (i % (maxWidth * maxHeight) == 0){
                 currentLayer = new Layer();
             }
             currentLayer.pixels.add(input.get(i));
+            if (i % (maxWidth * maxHeight) == (maxWidth * maxHeight)-1){
+                layerList.add(currentLayer);
+            }
         }
     }
 
@@ -82,7 +86,45 @@ public class ImageDecoder {
         System.out.println("Answer is: " + (ones * twos));
     }
 
-    class Layer {
+    private Layer decodeImage(){
+        Layer imageLayer = new Layer();
+        System.out.println("Total of layers: " + layerList.size());
+        int sum = 0;
+        for (Layer layer : layerList){
+            ++sum;
+            for (int i = 0; i < layer.pixels.size(); i++) {
+                if (sum == 1){
+                    imageLayer.pixels.add(layer.pixels.get(i));
+                } else {
+                    if (imageLayer.pixels.get(i) == 2){
+                        imageLayer.pixels.set(i, layer.pixels.get(i));
+                    }
+                }
+            }
+        }
+
+        System.out.println("Total of processed layers: " + sum);
+        return imageLayer;
+    }
+
+    private void printImage(Layer imageLayer){
+        StringBuilder line = new StringBuilder();
+
+        for (int i = 0; i < imageLayer.pixels.size(); i++) {
+            if(imageLayer.pixels.get(i) == 0){
+                line.append("▒");
+            } else if(imageLayer.pixels.get(i) == 1) {
+                line.append("▓");
+            }
+
+            if (i % maxWidth == maxWidth-1){
+                line.append("\n");
+            }
+        }
+        System.out.println(line);
+    }
+
+    static class Layer {
         ArrayList<Integer> pixels;
 
         Layer(){
